@@ -7,30 +7,35 @@ import CharacterInfo from './components/CharacterInfo/CharacterInfo';
 const App = () => {
   const [characters, setCharacters] = useState([]);
 
-  // test adding pages
+  // cycle through API pages
+  const pagePrefix = `?page=`;
   const [pageNumber, setPageNumber] = useState(1);
-  const [pagePrefix, setPagePrefix] = useState(``);
 
   const incrementPageNumber = () => {
-    return (
-      setPageNumber(pageNumber + 1),
-      setPagePrefix(`?page=${pageNumber + 1}`)
-    )
-}
+    return setPageNumber(pageNumber + 1);
+  }
+
+  const decrementPageNumber = () => {
+    return setPageNumber(pageNumber - 1);
+  }
 
   useEffect(() => {
     axios
-      .get(`https://swapi.co/api/people/${pagePrefix}`)
+      .get(`https://swapi.co/api/people/${pagePrefix}${pageNumber}`)
       .then(response => {
         console.log(response);
+        console.log(pageNumber)
         const charactersArray = response.data.results;
         setCharacters(charactersArray);
       })
-  }, [])
+  }, [pageNumber])
+  // [pageNumber] in the dependancy array is telling the useEffect hook to run anytime pageNumber changes
 
   return (
     <div>
       <Nav />
+      <button onClick={incrementPageNumber}>Next Page</button>
+      <button onClick={decrementPageNumber}>Previous Page</button>
       {characters.map(character => {
         return (
           <CharacterInfo 
@@ -42,7 +47,6 @@ const App = () => {
           />
         )
       })}
-      <button onClick={incrementPageNumber}>click me</button>
     </div>
   )
 }
