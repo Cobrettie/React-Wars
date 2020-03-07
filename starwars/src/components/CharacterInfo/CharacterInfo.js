@@ -38,6 +38,7 @@ const CharacterInfo = (props) => {
     <MainContainerDiv>
       <CharacterCard>
         <CharacterName>{props.name}</CharacterName>
+        <CharacterDetails>Birth Year: {props.birth_year}</CharacterDetails>
         <CharacterDetails>Height: {props.height}cm</CharacterDetails>
         <CharacterDetails>Mass: {props.mass}kg</CharacterDetails>
         <CharacterDetails>Hair Color: {props.hair_color}</CharacterDetails>
