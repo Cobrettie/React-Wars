@@ -5,11 +5,11 @@ import Nav from './components/Nav/Nav';
 import CharacterInfo from './components/CharacterInfo/CharacterInfo';
 import Footer from './components/Footer/Footer';
 
+const api = `https://swapi.co/api/people/`;
+const pagePrefix = `?page=`;
+
 const App = () => {
   const [characters, setCharacters] = useState();
-
-  // cycle through API pages
-  const pagePrefix = `?page=`;
   const [pageNumber, setPageNumber] = useState(1);
 
   const incrementPageNumber = () => {
@@ -17,21 +17,28 @@ const App = () => {
   }
 
   const decrementPageNumber = () => {
-    return setPageNumber(pageNumber - 1);
+    return (
+      setPageNumber(pageNumber - 1)
+    );
   }
 
   useEffect(() => {
     axios
-      .get(`https://swapi.co/api/people/${pagePrefix}${pageNumber}`)
+      .get(`${api}${pagePrefix}${pageNumber}`)
       .then(response => {
         console.log(response);
         const charactersArray = response.data.results;
         setCharacters(charactersArray);
       })
+      .catch(err => console.log(err));
   }, [pageNumber])
   // [pageNumber] in the dependancy array is telling the useEffect hook to run anytime pageNumber changes
 
-  if(!characters) return <h3>Loading...</h3>
+  if (!characters) return <h3>Loading...</h3>
+
+  if (pageNumber === 0) return setPageNumber(1);
+
+  console.log(pageNumber);
 
   return (
     <div>
