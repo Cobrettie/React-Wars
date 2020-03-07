@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Nav from './components/Nav/Nav';
 import CharacterInfo from './components/CharacterInfo/CharacterInfo';
+import ChangePageButtons from './components/ChangePageButtons/ChangePageButtons';
 import Footer from './components/Footer/Footer';
 
 const api = `https://swapi.co/api/people/`;
@@ -43,8 +44,6 @@ const App = () => {
   return (
     <div>
       <Nav />
-      <button onClick={incrementPageNumber}>Next Page</button>
-      <button onClick={decrementPageNumber}>Previous Page</button>
       {characters.map(character => {
         return (
           <CharacterInfo 
@@ -56,6 +55,10 @@ const App = () => {
           />
         )
       })}
+      <ChangePageButtons 
+        incrementPageNumber={incrementPageNumber} 
+        decrementPageNumber={decrementPageNumber}
+      />
       <Footer />
     </div>
   )
