@@ -3,9 +3,10 @@ import axios from 'axios';
 import './App.css';
 import Nav from './components/Nav/Nav';
 import CharacterInfo from './components/CharacterInfo/CharacterInfo';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState();
 
   // cycle through API pages
   const pagePrefix = `?page=`;
@@ -24,12 +25,13 @@ const App = () => {
       .get(`https://swapi.co/api/people/${pagePrefix}${pageNumber}`)
       .then(response => {
         console.log(response);
-        console.log(pageNumber)
         const charactersArray = response.data.results;
         setCharacters(charactersArray);
       })
   }, [pageNumber])
   // [pageNumber] in the dependancy array is telling the useEffect hook to run anytime pageNumber changes
+
+  if(!characters) return <h3>Loading...</h3>
 
   return (
     <div>
@@ -47,6 +49,7 @@ const App = () => {
           />
         )
       })}
+      <Footer />
     </div>
   )
 }
