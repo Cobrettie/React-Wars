@@ -16,10 +16,20 @@ const CharacterCard = styled.div`
   margin: 30px 0 10px;
   border: 1px solid #373737;
   background-color: #fafafa;
+  border-radius: 5px;
 `;
 
 const CharacterName = styled.h2`
+  border-bottom: 1px solid #373737;
+  width: 40%;
+  margin: 20px auto 30px;
+  color: #373737;
+  font-size: 26px;
+`;
 
+const CharacterDetails = styled.p`
+  color: #373737;
+  font-size: 18px;
 `;
 
 const CharacterInfo = (props) => {
@@ -27,10 +37,10 @@ const CharacterInfo = (props) => {
   return (
     <MainContainerDiv>
       <CharacterCard>
-        <h2>{props.name}</h2>
-        <p>Height: {props.height}cm</p>
-        <p>Mass: {props.mass}kg</p>
-        <p>Hair Color: {props.hair_color}</p>
+        <CharacterName>{props.name}</CharacterName>
+        <CharacterDetails>Height: {props.height}cm</CharacterDetails>
+        <CharacterDetails>Mass: {props.mass}kg</CharacterDetails>
+        <CharacterDetails>Hair Color: {props.hair_color}</CharacterDetails>
       </CharacterCard>
     </MainContainerDiv>
   )

@@ -9,6 +9,8 @@ const NavContainerDiv = styled.div`
 const NavHeader = styled.h1`
   margin: 0 3%;
   padding: 20px 0;
+  font-family: Roboto;
+  color: #373737;
 `;
 
 const Nav = () => {
