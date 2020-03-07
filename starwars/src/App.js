@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
+import Nav from './components/Nav/Nav';
 import CharacterInfo from './components/CharacterInfo/CharacterInfo';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <div>
+      <Nav />
       {characters.map(character => {
         return (
           <CharacterInfo 
