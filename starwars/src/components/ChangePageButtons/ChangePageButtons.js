@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ChangePageButtons = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <div>
       <div> 

@@ -16,7 +16,6 @@ const App = () => {
   const incrementPageNumber = () => {
     return setPageNumber(pageNumber + 1);
   }
-
   const decrementPageNumber = () => {
     return (
       setPageNumber(pageNumber - 1)
@@ -27,38 +26,37 @@ const App = () => {
     axios
       .get(`${api}${pagePrefix}${pageNumber}`)
       .then(response => {
-        console.log(response);
-        const charactersArray = response.data.results;
-        setCharacters(charactersArray);
+        // console.log(response);
+        const allCharactersArray = response.data.results;
+        setCharacters(allCharactersArray);
       })
       .catch(err => console.log(err));
   }, [pageNumber])
-  // [pageNumber] in the dependancy array is telling the useEffect hook to run anytime pageNumber changes
 
-  if (!characters) return <h3>Loading...</h3>
-
+  if (!characters) return <h3>Loading...</h3>;
   if (pageNumber === 0) return setPageNumber(1);
-
-  console.log(pageNumber);
 
   return (
     <div>
       <Nav />
-      {characters.map(character => {
+
+      {characters.map(item => {
         return (
           <CharacterInfo 
-            name={character.name}
-            birth_year={character.birth_year}
-            height={character.height}
-            mass={character.mass}
-            hair_color={character.hair_color} 
+            name={item.name}
+            birth_year={item.birth_year}
+            height={item.height}
+            mass={item.mass}
+            hair_color={item.hair_color} 
           />
         )
       })}
+
       <ChangePageButtons 
         incrementPageNumber={incrementPageNumber} 
         decrementPageNumber={decrementPageNumber}
       />
+
       <Footer />
     </div>
   )
