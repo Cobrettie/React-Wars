@@ -34,7 +34,7 @@ const App = () => {
   }, [pageNumber])
 
   if (!characters) return <h3>Loading...</h3>;
-  if (pageNumber === 0) return setPageNumber(1);
+  if (pageNumber === 0 || pageNumber > 9) setPageNumber(1);
 
   return (
     <div>
