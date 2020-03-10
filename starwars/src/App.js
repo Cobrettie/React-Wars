@@ -30,7 +30,6 @@ const App = () => {
       })
       .catch(err => console.log(err));
   }, [pageNumber])
-  // [pageNumber] in the dependancy array is telling the useEffect hook to run anytime pageNumber changes
 
   if (!characters) return <h3>Loading...</h3>
   if (pageNumber === 0) return setPageNumber(1);
