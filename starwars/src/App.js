@@ -31,14 +31,16 @@ const App = () => {
       .catch(err => console.log(err));
   }, [pageNumber])
 
-  if (!characters) return <h3>Loading...</h3>
   if (pageNumber === 0) return setPageNumber(1);
+  if (!characters) return <h3>Loading...</h3>
 
   return (
     <div>
       <Nav />
+
       <button onClick={incrementPageNumber}>Next Page</button>
       <button onClick={decrementPageNumber}>Previous Page</button>
+
       {characters.map(character => {
         return (
           <CharacterInfo 
@@ -50,6 +52,7 @@ const App = () => {
           />
         )
       })}
+
       <Footer />
     </div>
   )
