@@ -1,19 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MainContainerDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: 0 auto;
-  text-align: center;
-`;
-
 const CharacterCard = styled.div`
-  width: 30%;
-  margin: 30px 0 10px;
+  width: 35%;
+  margin: 40px 20px 20px;
   border: 1px solid #373737;
   background-color: #fafafa;
   border-radius: 5px;
@@ -35,7 +25,7 @@ const CharacterDetails = styled.p`
 const CharacterInfo = (props) => {
   // console.log(props)
   return (
-    <MainContainerDiv>
+    // <MainContainerDiv>
       <CharacterCard>
         <CharacterName>{props.name}</CharacterName>
         <CharacterDetails>Birth Year: {props.birth_year}</CharacterDetails>
@@ -43,7 +33,7 @@ const CharacterInfo = (props) => {
         <CharacterDetails>Mass: {props.mass}kg</CharacterDetails>
         <CharacterDetails>Hair Color: {props.hair_color}</CharacterDetails>
       </CharacterCard>
-    </MainContainerDiv>
+    // </MainContainerDiv>
   )
 }
 

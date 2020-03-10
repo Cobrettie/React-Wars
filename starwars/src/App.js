@@ -1,10 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
+import styled from 'styled-components';
 import Nav from './components/Nav/Nav';
 import CharacterInfo from './components/CharacterInfo/CharacterInfo';
 import ChangePageButtons from './components/ChangePageButtons/ChangePageButtons';
 import Footer from './components/Footer/Footer';
+
+const CharacterCardsPageContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+`;
 
 const api = `https://swapi.co/api/people/`;
 const pagePrefix = `?page=`;
@@ -33,13 +44,14 @@ const App = () => {
       .catch(err => console.log(err));
   }, [pageNumber])
 
-  if (!characters) return <h3>Loading...</h3>;
   if (pageNumber === 0 || pageNumber > 9) setPageNumber(1);
+  if (!characters) return <h3>Loading...</h3>;
 
   return (
     <div>
       <Nav />
-      {characters.map(item => {
+      <CharacterCardsPageContainer>
+        {characters.map(item => {
         return (
           <CharacterInfo 
             name={item.name}
@@ -50,6 +62,7 @@ const App = () => {
           />
         )
       })}
+      </CharacterCardsPageContainer>
 
       <ChangePageButtons 
         incrementPageNumber={incrementPageNumber} 
