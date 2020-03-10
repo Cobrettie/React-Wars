@@ -12,12 +12,10 @@ import Footer from './components/Footer/Footer';
 const App = () => {
   return (
     <div>
-      <Nav />
-      
+      <Nav />  
       <Route exact path='/' component={Home} />
       <Route path='/characterlist' component={CharacterList} />
       <Route path='/planetlist' component={PlanetList} />
-      
       {/* <Footer /> */}
     </div>
   )

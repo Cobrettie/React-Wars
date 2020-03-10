@@ -46,7 +46,6 @@ const CharacterList = () => {
 
   return (
     <div>
-
       <CharacterCardsPageContainer>
         {characters.map(item => {
         return (
@@ -60,12 +59,10 @@ const CharacterList = () => {
         )
       })}
       </CharacterCardsPageContainer>
-
       <ChangePageButtons 
         incrementPageNumber={incrementPageNumber} 
         decrementPageNumber={decrementPageNumber}
       />
-
     </div>
   )
 }

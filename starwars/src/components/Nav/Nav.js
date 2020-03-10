@@ -22,13 +22,10 @@ const NavHeader = styled.h1`
 const Nav = () => {
   return (
     <NavContainerDiv>
-
       <NavHeader>StarWars Information</NavHeader>
-
       <Link to='/'>Home</Link>
       <Link to='/characterlist'>Character List</Link>
       <Link to='/planetlist'>Planet List</Link>
-
     </NavContainerDiv>
   )
 }
