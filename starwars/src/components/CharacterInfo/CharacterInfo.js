@@ -33,7 +33,7 @@ const CharacterDetails = styled.p`
 `;
 
 const CharacterInfo = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <MainContainerDiv>
       <CharacterCard>

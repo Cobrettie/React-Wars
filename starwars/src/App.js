@@ -39,7 +39,6 @@ const App = () => {
   return (
     <div>
       <Nav />
-
       {characters.map(item => {
         return (
           <CharacterInfo 

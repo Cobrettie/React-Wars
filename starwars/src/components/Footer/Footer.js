@@ -10,7 +10,8 @@ const FooterDivContainer = styled.div`
 const FooterInfo = styled.p`
   color: #373737;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 30px 0;
+  font-size: 20px;
 `;
 
 const Footer = () => {
