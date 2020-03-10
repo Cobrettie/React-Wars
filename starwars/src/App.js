@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import styled from 'styled-components';
+
 import Nav from './components/Nav/Nav';
 import CharacterInfo from './components/CharacterInfo/CharacterInfo';
 import ChangePageButtons from './components/ChangePageButtons/ChangePageButtons';
 import Footer from './components/Footer/Footer';
+import PlanetList from './components/PlanetList/PlanetList';
 
 const CharacterCardsPageContainer = styled.div`
   width: 100%;
@@ -49,6 +52,11 @@ const App = () => {
 
   return (
     <div>
+      <Router>
+        <Route path='/characters' component={CharacterInfo} />
+        <Route path='/planetlist' component={PlanetList} />
+      </Router>
+      
       <Nav />
       <CharacterCardsPageContainer>
         {characters.map(item => {

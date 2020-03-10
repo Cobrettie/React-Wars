@@ -16,7 +16,7 @@ const NavHeader = styled.h1`
 const Nav = () => {
   return (
     <NavContainerDiv>
-      <NavHeader>StarWars Characters</NavHeader>
+      <NavHeader>StarWars Information</NavHeader>
     </NavContainerDiv>
   )
 }
