@@ -18,20 +18,29 @@ const NavHeader = styled.h1`
   align-self: flex-end;
 `;
 
-const NavigationLinks = styled.div`
+const NavigationLinksContainer = styled.div`
   margin: 0 3% 0 0;
 `;
 
+const NavigationLink = styled(Link)`
+  color: #373737;
+  text-decoration: none;
+  padding: 0 20px;
+
+  &:nth-child(3) {
+    padding-right: 0px; 
+  }
+`;
 
 const Nav = () => {
   return (
     <NavContainerDiv>
       <NavHeader>StarWars Information</NavHeader>
-      <NavigationLinks>
-        <Link to='/'>Home</Link>
-        <Link to='/characterlist'>Character List</Link>
-        <Link to='/planetlist'>Planet List</Link>
-      </NavigationLinks>
+      <NavigationLinksContainer>
+        <NavigationLink to='/'>Home</NavigationLink>
+        <NavigationLink to='/characterlist'>Character List</NavigationLink>
+        <NavigationLink to='/planetlist'>Planet List</NavigationLink>
+      </NavigationLinksContainer>
     </NavContainerDiv>
   )
 }
