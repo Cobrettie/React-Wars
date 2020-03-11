@@ -35,6 +35,7 @@ const CharacterList = () => {
     axios
       .get(`${api}${pagePrefix}${pageNumber}`)
       .then(response => {
+        console.log(response);
         const allCharactersArray = response.data.results;
         setCharacters(allCharactersArray);
       })
@@ -47,9 +48,11 @@ const CharacterList = () => {
   return (
     <div>
       <CharacterCardsPageContainer>
-        {characters.map(item => {
+        {characters.map((item, index) => {
         return (
-          <CharacterInfo 
+          console.log(index),
+          <CharacterInfo
+            key={index} 
             name={item.name}
             birth_year={item.birth_year}
             height={item.height}
