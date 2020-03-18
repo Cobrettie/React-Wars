@@ -26,6 +26,7 @@ const NavigationLink = styled(Link)`
   color: #373737;
   text-decoration: none;
   padding: 0 20px;
+  font-size: 20px;
 
   &:nth-child(3) {
     padding-right: 0px; 
