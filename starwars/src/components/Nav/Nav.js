@@ -38,7 +38,7 @@ const Nav = () => {
       <NavHeader>StarWars Information</NavHeader>
       <NavigationLinksContainer>
         <NavigationLink to='/'>Home</NavigationLink>
-        <NavigationLink to='/characterlist'>Character List</NavigationLink>
+        <NavigationLink to='/characterlist'>Characters</NavigationLink>
         <NavigationLink to='/planetlist'>Planet List</NavigationLink>
       </NavigationLinksContainer>
     </NavContainerDiv>

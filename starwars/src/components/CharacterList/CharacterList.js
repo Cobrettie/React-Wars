@@ -50,7 +50,7 @@ const CharacterList = () => {
       <CharacterCardsPageContainer>
         {characters.map((item, index) => {
         return (
-          console.log(index),
+          // console.log(index),
           <CharacterInfo
             key={index} 
             name={item.name}
