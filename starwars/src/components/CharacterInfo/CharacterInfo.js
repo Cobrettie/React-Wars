@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CharacterCard = styled.div`
-  width: 35%;
+  width: 30%;
   margin: 40px 20px 20px;
   border: 1px solid #373737;
   background-color: #fafafa;
